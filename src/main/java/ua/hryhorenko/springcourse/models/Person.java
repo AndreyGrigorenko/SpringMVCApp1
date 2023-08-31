@@ -1,8 +1,12 @@
-package ua.hryhorenko.springcourse.config.models;
+package ua.hryhorenko.springcourse.models;
 
 public class Person {
   private int id;
   private String name;
+
+  public Person() {
+
+  }
 
   public Person(int id, String name) {
     this.id = id;

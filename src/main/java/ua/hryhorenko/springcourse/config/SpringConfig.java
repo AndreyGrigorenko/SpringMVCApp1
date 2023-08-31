@@ -1,4 +1,4 @@
-package ua.hryhorenko.springcourse.config.config;
+package ua.hryhorenko.springcourse.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -16,6 +16,7 @@ import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 @ComponentScan("ua.hryhorenko.springcourse")
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
+
   private final ApplicationContext applicationContext;
 
   @Autowired
@@ -29,8 +30,7 @@ public class SpringConfig implements WebMvcConfigurer {
     templateResolver.setApplicationContext(applicationContext);
     templateResolver.setPrefix("/WEB-INF/views/");
     templateResolver.setSuffix(".html");
-
-    return  templateResolver;
+    return templateResolver;
   }
 
   @Bean
@@ -38,7 +38,6 @@ public class SpringConfig implements WebMvcConfigurer {
     SpringTemplateEngine templateEngine = new SpringTemplateEngine();
     templateEngine.setTemplateResolver(templateResolver());
     templateEngine.setEnableSpringELCompiler(true);
-
     return templateEngine;
   }
 
