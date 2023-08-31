@@ -1,4 +1,4 @@
-package ua.hryhorenko.springcourse.config;
+package ua.hryhorenko.springcourse.config.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
