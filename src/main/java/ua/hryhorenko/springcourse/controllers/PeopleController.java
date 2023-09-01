@@ -10,7 +10,6 @@ import ua.hryhorenko.springcourse.models.Person;
 @Controller
 @RequestMapping("/people")
 public class PeopleController {
-
   private final PersonDao personDAO;
 
   @Autowired
@@ -40,4 +39,26 @@ public class PeopleController {
     personDAO.save(person);
     return "redirect:/people";
   }
+
+  @GetMapping("/{id}/edit")
+  public String edit(@PathVariable("id") int id, Model model) {
+    model.addAttribute("person", personDAO.show(id));
+
+    return "people/edit";
+  }
+
+  @PatchMapping("/{id}")
+  public String update(@ModelAttribute("person") Person person, @PathVariable("id") int id) {
+    personDAO.update(id, person);
+
+    return "redirect:/people";
+  }
+
+  @DeleteMapping("/{id}")
+  public String delete(@PathVariable("id") int id, Model model) {
+    personDAO.delete(id);
+
+    return "redirect:/people";
+  }
+
 }

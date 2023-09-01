@@ -30,6 +30,7 @@ public class SpringConfig implements WebMvcConfigurer {
     templateResolver.setApplicationContext(applicationContext);
     templateResolver.setPrefix("/WEB-INF/views/");
     templateResolver.setSuffix(".html");
+
     return templateResolver;
   }
 
@@ -38,6 +39,7 @@ public class SpringConfig implements WebMvcConfigurer {
     SpringTemplateEngine templateEngine = new SpringTemplateEngine();
     templateEngine.setTemplateResolver(templateResolver());
     templateEngine.setEnableSpringELCompiler(true);
+
     return templateEngine;
   }
 
