@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Size;
 
 public class Book {
   private int id;
-
   @NotEmpty(message = "Title should not be empty")
   @Size(min = 2, max = 100, message = "Title should be from 2 to 100 characters")
   private String title;
