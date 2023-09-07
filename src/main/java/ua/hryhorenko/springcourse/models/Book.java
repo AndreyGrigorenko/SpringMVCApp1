@@ -18,9 +18,9 @@ public class Book {
   public Book() {
   }
 
-  public Book(String title, String autor, int year) {
+  public Book(String title, String author, int year) {
     this.title = title;
-    this.autor = autor;
+    this.autor = author;
     this.year = year;
   }
 
@@ -40,12 +40,8 @@ public class Book {
     this.title = title;
   }
 
-  public String getAutor() {
+  public String getAuthor() {
     return autor;
-  }
-
-  public void setAutor(String autor) {
-    this.autor = autor;
   }
 
   public int getYear() {

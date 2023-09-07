@@ -25,7 +25,6 @@ public class PeopleController {
   @GetMapping()
   public String index(Model model) {
     model.addAttribute("people", personDAO.index());
-    model.addAttribute("books", personDAO.getBooksByPersonId(id));
 
     return "people/index";
   }
@@ -33,6 +32,7 @@ public class PeopleController {
   @GetMapping("/{id}")
   public String show(@PathVariable("id") int id, Model model) {
     model.addAttribute("person", personDAO.show(id));
+    model.addAttribute("books", personDAO.getBooksByPersonId(id));
 
     return "people/show";
   }

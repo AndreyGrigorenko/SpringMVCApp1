@@ -6,12 +6,26 @@
 </head>
 
 <body>
-  <p th:text="${person.getName() + ',  ' + person.getAge()}">VALUE</p>
-  <p th:text="${person.getId()}">VALUE</p>
-  <p th:text="${person.getEmail()}">VALUE</p>
-  <p th:text="${person.getAddress()}">VALUE</p>
+  <p th:text="${person.getFullName() + ',  ' + person.getYearOfBirth()}">VALUE</p>
 
-  <a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
+  <div th:if="${books.isEmpty()}">
+    <p>Person does not have any book yet</p>
+    <hr/>
+  </div>
+
+  <div th:if="${!books.isEmpty()}">
+    <hr/>
+    <b>Books: </b>
+    <br/>
+    <table th:each="book : ${books}">
+      <tr th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}"></tr>
+    </table>
+
+  </div>
+
+  <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
+    <input type="submit" value="Update">
+  </form>
 
   <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
     <input type="submit" value="Delete">
