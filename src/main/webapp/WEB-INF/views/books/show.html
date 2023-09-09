@@ -12,7 +12,7 @@
   <span>Book has: </span><span th:text="${owner.getFullName()}">Person name</span>
 
   <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
-    <input type="submit" value="Update book">
+    <input type="submit" value="Make book free">
   </form>
 </div>
 
@@ -26,6 +26,8 @@
       <option th:each="person : ${people}" th:text="${person.getFullName()}" th:value="${person.getId()}">
       </option>
     </select>
+
+    <input type="submit" value="Selected book"/>
   </form>
 </div>
 

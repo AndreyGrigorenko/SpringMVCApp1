@@ -29,7 +29,7 @@ public class BookDao {
   }
 
   public void save(Book book) {
-    jdbcTemplate.update("INSERT INTO Book(title, author, year) VALUES (?, ?, ?)",
+    jdbcTemplate.update("INSERT INTO Book(title, author, year) VALUES(?, ?, ?)",
             book.getTitle(), book.getAuthor(), book.getYear());
   }
 
@@ -43,7 +43,8 @@ public class BookDao {
   }
 
   public Optional<Person> getBookOwner(int id) {
-    return jdbcTemplate.query("SELECT * Person.* FROM Book JOIN Person ON Book.person_id = Person.id WHERE Book.id = ?",
+    return jdbcTemplate.query("SELECT Person.* FROM Book JOIN Person ON Book.person_id = Person.id " +
+                    "WHERE Book.id = ?",
                     new Object[]{id}, new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
   }
 

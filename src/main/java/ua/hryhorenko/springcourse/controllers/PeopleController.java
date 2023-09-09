@@ -67,8 +67,6 @@ public class PeopleController {
   public String update(@ModelAttribute("person") @Valid Person person,
                        BindingResult bindingResult,
                        @PathVariable("id") int id) {
-    personValidator.validate(person, bindingResult);
-
     if (bindingResult.hasErrors()) {
       return "people/edit";
     }
@@ -79,7 +77,7 @@ public class PeopleController {
   }
 
   @DeleteMapping("/{id}")
-  public String delete(@PathVariable("id") int id, Model model) {
+  public String delete(@PathVariable("id") int id) {
     personDAO.delete(id);
 
     return "redirect:/people";

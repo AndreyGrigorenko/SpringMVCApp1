@@ -11,7 +11,7 @@ public class Book {
   private String title;
   @NotEmpty(message = "Author's name should not be empty")
   @Size(min = 2, max = 100, message = "Author's name should be from 2 to 100 characters")
-  private String autor;
+  private String author;
   @Min(value = 1500, message = "Year should be more than 1500")
   private int year;
 
@@ -20,7 +20,7 @@ public class Book {
 
   public Book(String title, String author, int year) {
     this.title = title;
-    this.autor = author;
+    this.author = author;
     this.year = year;
   }
 
@@ -41,7 +41,11 @@ public class Book {
   }
 
   public String getAuthor() {
-    return autor;
+    return author;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
   }
 
   public int getYear() {
