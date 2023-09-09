@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Show</title>
+  <title>Show person</title>
 </head>
 
 <body>
@@ -20,12 +20,13 @@
     <table th:each="book : ${books}">
       <tr th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}"></tr>
     </table>
-
   </div>
 
   <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
     <input type="submit" value="Update">
   </form>
+
+  <br/>
 
   <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
     <input type="submit" value="Delete">
