@@ -1,1 +1,1 @@
-# SpringMVCApp1
+# spring-mvc-app1
